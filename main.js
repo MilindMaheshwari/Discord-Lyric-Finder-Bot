@@ -93,6 +93,7 @@ const sessionEmb = new Discord.MessageEmbed()
 
 client.on('ready', () => {
     console.log('I\'m here');
+    console.log(process.env.ENVIRONMENT);
 });
 
 client.on("messageCreate", message => {
@@ -119,7 +120,7 @@ client.on("messageCreate", message => {
     
                 message.channel.send({embeds: [sessionEmb]});
                 searchLyrics("https://www.google.com/search?q=" + session1.songName + " " + session1.artist);
-                
+
                 break;
             
             case "fill":
@@ -146,10 +147,10 @@ client.on("messageCreate", message => {
 
 
 async function searchLyrics(url){
-    const browser = await puppeteer.launch({
-        headless: false,
-    });
-
+    var browser = await puppeteer.launch
+        ({
+        headless : (process.env.ENVIRONMENT == "CLOUD")
+        });
 
     const page = await browser.newPage(); 
     
