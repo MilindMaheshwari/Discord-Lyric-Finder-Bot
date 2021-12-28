@@ -147,7 +147,7 @@ client.on("messageCreate", message => {
 
 
 async function searchLyrics(url){
-    var browser = await puppeteer.launch
+    const browser = await puppeteer.launch
         ({
         headless : (process.env.ENVIRONMENT == "CLOUD")
         });
