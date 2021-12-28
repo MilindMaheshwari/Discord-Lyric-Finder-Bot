@@ -5,6 +5,8 @@
 console.clear();
 
 const puppeteer = require('puppeteer');
+
+
 const Discord = require('discord.js');
 
 const config = require("./Data/config.json");
@@ -99,10 +101,11 @@ client.on("messageCreate", message => {
         messageArr = message.content.split(" ");
         switch (messageArr[0]) {
             case "help":
-                helpEmb.setDescription(`Here are some commands you can use to get started:
-                        !start starts a karaoke session
-                        !start ghost starts a karaoke session without notifying others 
-                        Once a karaoke session is started, you can use !fill to ask me to fill in the next line`);
+                helpEmb.setDescription(
+                    `Here are some commands you can use to get started:
+                            !start starts a karaoke session
+                            !start ghost starts a karaoke session without notifying others 
+                            Once a karaoke session is started, you can use !fill to ask me to fill in the next line`);
                 message.channel.send({ embeds: [helpEmb] });
                 break;
             case "start":
@@ -115,9 +118,16 @@ client.on("messageCreate", message => {
                 session1.setFields();
     
                 message.channel.send({embeds: [sessionEmb]});
-            case "fill":
                 searchLyrics("https://www.google.com/search?q=" + session1.songName + " " + session1.artist);
+                
+                break;
+            
+            case "fill":
+
+                break;
+            
             case "closeBrowser":
+                break;
                 
             default:
     
@@ -150,4 +160,5 @@ async function searchLyrics(url){
 
 
 
-client.login('OTIzOTc5NzE5MDUyMDAxMjgw.YcX5Kw.D58EUNDpZCA7wEAPogr_gQ9AVQM');   
+client.login('OTIzOTc5NzE5MDUyMDAxMjgw.YcX5Kw.D58EUNDpZCA7wEAPogr_gQ9AVQM');    //Change this value to whatever your discord token is. For security reasons, I'm going to be storing it in Heroku. 
+
