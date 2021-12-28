@@ -11,6 +11,10 @@
     "discord.js": "^13.4.0",
     "nodemon": "^2.0.15",
     "puppeteer": "^13.0.1"
+    
+  },
+  "engines":{
+    "node":"8.7.0"
   },
   "keywords": [],
   "description": ""
