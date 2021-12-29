@@ -159,7 +159,5 @@ async function searchLyrics(url){
 
 
 
-
-
-client.login(process.env['TOKEN']);    //Change this value to whatever your discord token is. For security reasons, I'm going to be storing it in Heroku. 
+client.login(process.env["TOKEN"]);    //Change this value to whatever your discord token is. For security reasons, I'm going to be storing it in Heroku. 
 
