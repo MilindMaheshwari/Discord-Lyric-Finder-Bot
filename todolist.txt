@@ -1,2 +1,6 @@
 Find a way to make discord bot offline, or get dynos to stop working to preserve heroku hours. 
 Maybe if date is past 12pm, change procfile dyno to something else
+
+
+
+Testing Repl Version Control
