@@ -94,6 +94,7 @@ const sessionEmb = new Discord.MessageEmbed()
 client.on('ready', () => {
     console.log('I\'m here');
     console.log(process.env.ENVIRONMENT);
+    console.log(process.env.TOKEN);
 });
 
 client.on("messageCreate", message => {
@@ -149,7 +150,8 @@ client.on("messageCreate", message => {
 async function searchLyrics(url){
     const browser = await puppeteer.launch
         ({
-        headless : (process.env.ENVIRONMENT == "CLOUD")
+        headless : (process.env.ENVIRONMENT == "CLOUD"), 
+        args: ['--no-sandbox', '--disable-setuid-sandbox'] 
         });
 
     const page = await browser.newPage(); 
@@ -159,5 +161,5 @@ async function searchLyrics(url){
 
 
 
-client.login(process.env["TOKEN"]);    //Change this value to whatever your discord token is. For security reasons, I'm going to be storing it in Heroku. 
+//client.login(process.env["TOKEN"]);    //Change this value to whatever your discord token is. For security reasons, I'm going to be storing it in Heroku. 
 
